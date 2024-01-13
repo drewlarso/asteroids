@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://5aidhabq3g6y"]
+
+[ext_resource type="Script" path="res://scripts/laser.gd" id="1_ovi3c"]
+[ext_resource type="PackedScene" uid="uid://ck4f40b7f83qx" path="res://scenes/components/outline.tscn" id="1_u00ma"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2kftj"]
+radius = 16.0
+
+[node name="Laser" type="Area2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_ovi3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_2kftj")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+rotation = 1.5708
+polygon = PackedVector2Array(0, -16, 0, 16, 0, 8, 0, 0)
+
+[node name="Outline" parent="Polygon2D" node_paths=PackedStringArray("polygon") instance=ExtResource("1_u00ma")]
+polygon = NodePath("..")
+color = Color(1, 0, 0, 1)
+width = 6
