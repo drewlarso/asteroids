@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://1mejh4dthp2y"]
+
+[ext_resource type="PackedScene" uid="uid://ck4f40b7f83qx" path="res://scenes/components/outline.tscn" id="1_af53b"]
+
+[node name="Polygon2D" type="Polygon2D"]
+polygon = PackedVector2Array(0, -64, 40, -48, 48, -24, 64, 16, 24, 56, -32, 64, -48, 24, -64, -32, -24, -48)
+
+[node name="Outline" parent="." node_paths=PackedStringArray("polygon") instance=ExtResource("1_af53b")]
+polygon = NodePath("..")

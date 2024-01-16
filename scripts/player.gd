@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 signal laser_shot(laser_position, laser_direction)
+signal died
 
 @export var max_speed: int = 400
 @export var acceleration: float = 10.0
@@ -16,6 +17,7 @@ var shoot_timer: float = 0.0
 func _physics_process(delta: float) -> void:
 	shoot_timer = move_toward(shoot_timer, 0, delta)
 	move()
+	collide()
 	wrap_screen()
 	shoot()
 
@@ -31,6 +33,13 @@ func move() -> void:
 	velocity = velocity.limit_length(max_speed)
 	velocity = velocity.move_toward(Vector2.ZERO, acceleration / 3)
 	move_and_slide()
+
+func collide() -> void:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is Asteroid:
+			died.emit()
 
 func wrap_screen() -> void:
 	var screen_size: Vector2 = get_viewport_rect().size

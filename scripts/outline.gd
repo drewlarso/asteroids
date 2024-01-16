@@ -4,6 +4,9 @@ extends Node2D
 @export var color: Color = Color.WHITE
 @export var width: int = 2
 
+func _ready() -> void:
+	polygon.color.a = 0
+
 func _draw() -> void:
 	if not polygon: return
 	var points: PackedVector2Array = polygon.polygon

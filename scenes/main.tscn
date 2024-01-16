@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjl4rdd3m53ip"]
+[gd_scene load_steps=3 format=3 uid="uid://cjl4rdd3m53ip"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3nvgu"]
+[ext_resource type="PackedScene" uid="uid://do0o0dxudg2ie" path="res://scenes/ui.tscn" id="3_w2pte"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3nvgu")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("3_w2pte")]
+
 [node name="Lasers" type="Node" parent="."]
+
+[node name="Asteroids" type="Node" parent="."]
+
+[connection signal="reset_button_clicked" from="CanvasLayer/UI" to="." method="_on_ui_reset_button_clicked"]

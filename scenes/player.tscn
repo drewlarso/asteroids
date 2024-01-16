@@ -7,6 +7,7 @@
 radius = 32.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 4
 script = ExtResource("1_8vliu")
 shoot_delay = 0.25
 
@@ -14,7 +15,6 @@ shoot_delay = 0.25
 shape = SubResource("CircleShape2D_bjwrp")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(32, 0, -24, -24, -16, 0, -24, 24)
 
 [node name="Outline" parent="Polygon2D" node_paths=PackedStringArray("polygon") instance=ExtResource("1_w2c6h")]

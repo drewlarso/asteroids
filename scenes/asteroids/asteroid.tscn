@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ej1ab34mcir"]
+
+[ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_owvoa"]
+[ext_resource type="Shape2D" uid="uid://dmfxoo43a13xi" path="res://resources/collider_asteroid_big.tres" id="2_vcv3f"]
+
+[node name="Asteroid" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_owvoa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_vcv3f")
